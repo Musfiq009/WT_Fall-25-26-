@@ -1,0 +1,22 @@
+body {
+    background-color: whitesmoke;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+div {
+    
+    background-color: wheat;
+    width: 420px;
+    height:300px;
+}
+table {
+    width: 400px;
+    padding: 5px;
+}
+input {
+    width: 390px;
+}
+button {
+    width: 100%;
+    margin-top: 10px;
+}
