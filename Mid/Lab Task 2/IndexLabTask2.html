@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesLabTask2.css">
+</head>
+<body>
+<div class="registration">
+    <h2>Student Registration</h2>
+
+    <label>Full Name:</label>
+    <input id="name" type="text">
+
+    <label>Email:</label>
+    <input id="email" type="text">
+
+    <label>Password:</label>
+    <input id="password" type="password">
+
+    <label>Confirm Password:</label>
+    <input id="confirm" type="password">
+
+    <button onclick="registerStudent()">Register</button>
+
+    <div id="successBox"></div>
+    <div id="errorBox"></div>
+</div>
+
+<div class="registration">
+    <h2>Course Registration</h2>
+
+    <label>Course Name:</label>
+    <input id="courseName" type="text">
+
+    <button>Add Course</button>
+
+</div>
+<script>
+    function registerStudent() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let pass = document.getElementById("password").value.trim();
+    let conf = document.getElementById("confirm").value.trim();
+
+    let errorBox = document.getElementById("errorBox");
+    let successBox = document.getElementById("successBox");
+
+
+    if (name === "" || email === "" || pass === "" || conf === "") {
+        errorBox.innerHTML = "Please fill in all fields.";
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        errorBox.innerHTML = "Email must contain '@'.";
+        return false;
+    }
+
+    if (pass !== conf) {
+        errorBox.innerHTML = "Passwords do not match.";
+        return false;
+    }
+
+    successBox.style.display = "block";
+    successBox.innerHTML = `
+        <strong>Registration Successful!</strong><br><br>
+        Name: ${name}<br>
+        Email: ${email}
+    `;
+
+    return false;
+}
+</script>
+</body>
+</html>
